@@ -1,7 +1,9 @@
-export default function Selector(props: { 
+interface selectorProps { 
     children: any,
-    onSelectorChange: (e: any) => void
-}) {
+    onSelectorChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+}
+
+export default function Selector(props: selectorProps) {
     const {children, onSelectorChange} = props
     return (
         <select className="selector" onChange={onSelectorChange}>

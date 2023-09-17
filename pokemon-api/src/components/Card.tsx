@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react"
 import { getPokemonSprite } from "../api/utils"
 import { getPokemonDescription } from "../api/utils"
+import { CurrentPokemon } from "../types/myTypes"
 
-type CurrentPokemon = {
-    id: number,
-    name: string
-  }
+interface cardProps {
+    currentPokemon: CurrentPokemon
+}
 
-export default function Card(props: {currentPokemon: CurrentPokemon}) {
+export default function Card(props: cardProps) {
     const {currentPokemon} = props
     const [image, setImage] = useState("")
     const [description, setDescription] = useState("")
 
     useEffect(() => {
         async function getImage() {
-            const pokemonSprite = await getPokemonSprite(currentPokemon.id)
-            const pokemonDescription = await getPokemonDescription(currentPokemon.id)
+            const pokemonSprite: string = await getPokemonSprite(currentPokemon.id)
+            const pokemonDescription: string = await getPokemonDescription(currentPokemon.id)
 
             setImage(pokemonSprite)
             setDescription(pokemonDescription)
