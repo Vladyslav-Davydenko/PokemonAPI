@@ -1,5 +1,5 @@
 interface selectorProps { 
-    children: any,
+    children: JSX.Element[],
     onSelectorChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 

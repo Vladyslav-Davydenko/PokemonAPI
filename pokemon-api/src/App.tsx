@@ -6,12 +6,21 @@ import { useEffect, useState } from 'react'
 import { getPokemonList } from './api/utils'
 import { CurrentPokemon, Pokemon } from './types/myTypes'
 
+/**
+ * Main component connecting Selector and Card components
+ */
+
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [currentPokemon, setCurrentPokemon] = useState<CurrentPokemon>({
     id: 1,
     name: "Bulbazaur"
   })
+
+  /**
+   * Function to handle selector change, obtaining its value and
+   * saving it to the currentPokemon hook
+   */
 
   function handleSelectorChange(e: React.ChangeEvent<HTMLSelectElement>): void{
     const selectedValue: number = parseInt(e.currentTarget.value)
